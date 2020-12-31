@@ -1,0 +1,27 @@
+{
+	"name": "custom-tinymce",
+	"title": "Custom TinyMCE",
+	"description": "Add custon HTML blocks to the TinyMCE Editor.",
+	"author": "Freewolf2000",
+	"version": "0.1.0",
+	"minimumCoreVersion": "0.7.5",
+	"compatibleCoreVersion":"0.7.9",
+	"url": "https://github.com/Freewolf2000/custom-tinymce",
+	"manifest": "https://raw.githubusercontent.com/Freewolf2000/custom-tinymce/main/custom-tinymce/module.json",
+	"download": "https://github.com/Freewolf2000/custom-tinymce/raw/main/custom-tinymce.zip",
+	"scripts": [],
+	"styles": [
+		"styles/custom-tinymce.css",
+	],
+	"esmodules": [
+		"scripts/custom-tinymce.js"
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"packs": []
+}

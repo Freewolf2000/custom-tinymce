@@ -1,0 +1,341 @@
+/*
+    Welcome to the inner sanctum of your own personal playground to design your
+    own wonderful-looking journals! Having mutliple different active journal 
+    themes (much like say, character sheets in the D&D 5e system) is something 
+    I eventually want to tackle, but is not yet implemented as journals are not
+    natively extensible the same way, as far as I've seen, so if anyone wants to
+    reach out with a solution on how to do that, it would be greatly appreciated!
+    Otherwise, see below for the general variables you can set to better customize
+    your experience, whether it is to get that unique Sci-Fi look, make a
+    dark theme or log your adventures in a cuter, funnier or grimer theme. Have fun!
+                                                            - Sanyella
+
+    Personalizing your journals
+    *************************************
+    If you want to customize the look of your journals, you can simply modify the
+    variables' values for a uniform change. It is unrecommended to individually
+    change values for elements, as these changes can become hard to track and to
+    keep uniform, but the power is in your hands! It is after all quite possible 
+    that my original settings do not allow for the exact thing you want, or we do 
+    not perfectly agree on what belongs as an "accent", and that's ok :)
+
+    Different things that cannot be parametherized with variables are also in there,
+    I've tried to tag the most interesting ones with OPTION to make them easily 
+    searchable (do you want drop caps at the beginning of your paragraphs, for 
+    instance?).
+    
+    A final word of warning:
+    Especially since there is currently no concept of multiple "themes" and no
+    permanence of any of your changes, though updates aren't likely to come up all
+    that often for this little module, they might still happen (such as perhaps to 
+    introduce such theming) and ANY CHANGES YOU WOULD HAVE MADE WOULD BE LOST.
+
+    ###############################################################################
+    # PLEASE SAVE ANY CHANGES YOU WANT TO KEEP OUTSIDE OF THE MODULE TO SET THOSE #
+    # BACK IN CASE OF A MODULE UPDATE.                                            #
+    ###############################################################################
+
+    Thanks, attributions & links
+    *************************************
+    Thanks to both Stryxin's dark mode module (https://github.com/Stryxin/dnd5edark-foundryvtt)
+    and Felix's BetterNPCSheet module (https://github.com/syl3r86/BetterNPCSheet5e)
+    which have both helped me tremendously in understanding how to structure my own
+    module.
+    Lovers Quarrel font: https://fonts.google.com/specimen/Lovers+Quarrel
+    Anglo-text font: https://www.1001fonts.com/anglo-text-font.html
+        For more drop-cap fonts: https://www.1001fonts.com/drop-caps-fonts.html
+        And how to add them: https://www.pagecloud.com/blog/how-to-add-custom-fonts-to-any-website
+    Dark background 1: https://www.publicdomainpictures.net/en/view-image.php?image=169017&picture=grunge-background
+    Parchment 1, by FilterForge : https://www.flickr.com/photos/filterforge/9340122531
+
+*/
+
+/*
+    Variables for uniform color control
+    Using an editor like VSCode which has a built in color picker or an external 
+    ressource that gives you the hexadecimal color code from a color picker is 
+    recommended. Be careful too to give them a name unique to your theme so as to 
+    not encounter any problems with properties overriding one another (just 
+    search-and-replace the "--template-" pattern)
+*/
+
+body {
+    --template-dark-accent-color: #061a5e;
+    --template-base-accent-color: #002394;
+    --template-light-accent-color: #1b47d6;
+    --template-translucent-accent-color: #00239440;
+    --template-header-color: #bfbfbf;
+    --template-base-text-color: #bfbfbf;
+    --template-link-color: #3b56b1;
+    --template-link-visited-color: #405494;
+    --template-window-text-color: #bfbfbf;
+    --template-button-background-color: #1a1a1a;
+    --template-button-hover-color: #272727;
+    --template-background-color: #a5afb4bb;
+    --template-background-texture-image: url(../textures/dark-background-1.jpg);
+}
+
+/************************************************
+	Headers and text
+************************************************/
+
+.template-journal h2, .template-journal h1 {
+    border-bottom: 1px solid var(--template-base-accent-color);
+    color: var(--template-header-color);
+}
+
+.template-journal .editor-content>h3, .template-journal .editor-content>h4, .template-journal .editor-content>h5, .template-journal .editor-content>h6 {
+    color: var(--template-header-color);
+}
+
+.template-journal .editor-content>p {
+    color: var(--template-base-text-color);
+}
+
+/* bullet-point list */
+
+.template-journal .editor-content>ul {
+    color: var(--template-base-text-color);
+}
+
+/* tables in general */
+
+.template-journal tbody {
+    color: var(--template-journal-base-text-color);
+}
+
+/* table header cells */
+
+.template-journal th {
+    color: var(--template-journal-header-color);
+}
+
+/* MEME minimal compatibility */
+
+.template-journal .CodeMirror {
+    color: var(--template-journal-base-text-color);
+}
+
+/* The cursor indicating where you are writing */
+
+.template-journal .CodeMirror-cursor {
+    border-left: 1px solid var(--template-journal-base-text-color);
+}
+
+/************************************************
+    Special text and highlights
+************************************************/
+
+.template-journal .editor-content>blockquote {
+    color: var(--template-base-text-color);
+}
+
+/* Links (internet) */
+
+.template-journal a:link {
+    color: var(--template-link-color);
+}
+
+.template-journal a:visited {
+    color: var(--template-link-visited-color);
+}
+
+.template-journal a:hover {
+    color: var(--template-link-color);
+    text-shadow: 0px 0px 2px var(--template-light-accent-color);
+}
+
+/* Links (entity, rolls) */
+
+.template-journal a.entity-link, .template-journal a.inline-roll {
+    background-color: var(--template-button-background-color);
+}
+
+/* Secret section */
+
+.template-journal section.secret {
+    color: var(--template-base-text-color);
+    background-color: #df94ee20;
+}
+
+/* Modifies Polyglot CSS */
+
+.template-journal .polyglot-journal {
+    background-color: #00239440;
+}
+
+/* 
+    OPTION Drop cap - you can add font and color options to this block, too!
+    Changing sizes and fonts might require you to test and tweak quite a bit
+    to get exactly the effect you want, but hey, drop caps are cool! 
+*/
+
+.template-journal span.drop-cap {
+    float: left;
+    font-family: 'anglo_textregular';
+    font-size: 3em;
+    line-height: 0.8em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    color: var(--template-header-color);
+}
+
+/************************************************
+    OPTION Added block styles
+************************************************/
+
+.template-journal section.simple-block {
+    color: var(--template-base-text-color);
+    background-color: var(--template-translucent-accent-color);
+    border: 1px solid var(--template-base-accent-color);
+    padding: 4px;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.template-journal section.simple-block-float {
+    color: var(--template-base-text-color);
+    background-color: var(--template-translucent-accent-color);
+    border: 1px solid var(--template-base-accent-color);
+    padding: 4px;
+    margin-right: 2%;
+    margin-left: 2%;
+    width: 35%;
+    float: right;
+}
+
+.template-journal section.ridged-block {
+    color: var(--template-base-text-color);
+    background-color: var(--template-translucent-accent-color);
+    border: 5px ridge var(--template-base-accent-color);
+    padding: 4px;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.template-journal section.ridged-block-float {
+    color: var(--template-base-text-color);
+    background-color: var(--template-translucent-accent-color);
+    border: 5px ridge var(--template-base-accent-color);
+    padding: 4px;
+    margin-right: 2%;
+    margin-left: 2%;
+    width: 35%;
+    float: right;
+}
+
+/************************************************
+    Background and various window elements
+************************************************/
+
+/* Journal title */
+
+.template-journal .window-content input[type="text"] {
+    color: var(--template-header-color);
+}
+
+.template-journal .window-content input[type="text"]:focus, .template-journal .window-content input[type="text"]:hover {
+    box-shadow: 0 0 10px var(--template-base-accent-color);
+}
+
+/* Background */
+
+.template-journal .window-content {
+    background: var(--template-background-texture-image);
+}
+
+.template-journal button {
+    background-color: var(--template-button-background-color);
+    color: var(--template-window-text-color);
+    border-color: var(--template-button-hover-color);
+}
+
+.template-journal button:hover {
+    background-color: var(--template-button-hover-color);
+    box-shadow: 0 0 10px var(--template-base-accent-color);
+}
+
+.template-journal ::-webkit-scrollbar-thumb {
+    background: var(--template-dark-accent-color);
+    border: 1px solid var(--template-base-accent-color);
+}
+
+/* Folder dropdown - upper bar */
+
+.template-journal .editable select[name="folder"] {
+    color: var(--template-window-text-color);
+    background: url(../textures/dark-background-1.jpg);
+}
+
+.template-journal .editable select[name="folder"]:focus {
+    box-shadow: 0 0 5px var(--template-base-accent-color);
+}
+
+/* Folder dropdown - the actual dropdown */
+
+.template-journal .editable select[name="folder"] option {
+    color: var(--template-window-text-color);
+    background-color: var(--template-button-hover-color);
+}
+
+/*
+    One Journal compatibility
+*/
+
+/* Background with OneJournal */
+
+#OneJournalShell .template-journal.one-journal-attached .window-content {
+    background: var(--template-background-texture-image);
+}
+
+/* Entry title underline with OneJournal */
+
+.template-journal.one-journal-attached form input[name="name"] {
+    border-color: var(--template-base-accent-color);
+}
+
+/************************************************
+    Editor 
+    OPTION - depending on if you want the editing experience to be more or less
+    the same as the modified presentation, or a more streamlined editing look, it
+    is here that you should look to enable, disable, or tweak things.
+************************************************/
+
+/* Background */
+
+.template-journal .editor .tox-edit-area {
+    /* background: var(--template-background-texture-image); */
+    background-color: var(--template-background-color);
+}
+
+/* Buttons in edit mode */
+
+.template-journal .editor button {
+    color: var(--template-base-text-color);
+    background-color: var(--template-button-background-color);
+}
+
+.template-journal .editor button:hover {
+    color: var(--template-base-text-color);
+    background-color: var(--template-button-hover-color);
+}
+
+/* Header bar where the buttons are in edit mode */
+
+.template-journal .editor .tox-toolbar-overlord, .template-journal .editor .tox-toolbar__primary {
+    background-color: var(--template-background-color);
+}
+
+/* Button to go into edit mode */
+
+.template-journal .editor-edit {
+    color: var(--template-base-text-color);
+    background-color: var(--template-button-background-color);
+}
+
+/* Allows for the button images to be in colour */
+
+.template-journal .tox :not(svg):not(rect) {
+    fill: var(--template-base-text-color);
+    color: var(--template-base-text-color);
+}

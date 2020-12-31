@@ -1,0 +1,16 @@
+{
+	"custom-tinymce.CustomJournalSheet": "Original Theme",
+	"custom-tinymce.DarkMode": "Dark Mode",
+	"custom-tinymce.DarkSlate": "Dark Slate",
+	"custom-tinymce.Royal": "Royal",
+	"custom-tinymce.HandwrittenLetter": "Handwritten Letter",
+	"custom-tinymce.SciFiOne": "Sci-Fi One",
+	"custom-tinymce.SciFiTwo": "Sci-Fi Two",
+
+	"custom-tinymce.StyleSection": "Format Blocks",
+	"custom-tinymce.SWADECore": "SWADE Core",
+	"custom-tinymce.SimpleBlock": "Simple Block",
+	"custom-tinymce.SimpleBlockFloat": "Simple Block Float",
+	"custom-tinymce.RidgedBlock": "Ridged Block",
+	"custom-tinymce.RidgedBlockFloat": "Ridged Block Float"
+}
