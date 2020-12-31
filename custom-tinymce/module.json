@@ -9,7 +9,6 @@
 	"url": "https://github.com/Freewolf2000/custom-tinymce",
 	"manifest": "https://raw.githubusercontent.com/Freewolf2000/custom-tinymce/main/custom-tinymce/module.json",
 	"download": "https://github.com/Freewolf2000/custom-tinymce/raw/main/custom-tinymce.zip",
-	"scripts": [],
 	"styles": [
 		"styles/custom-tinymce.css"
 	],
@@ -22,6 +21,5 @@
 			"name": "English",
 			"path": "lang/en.json"
 		}
-	],
-	"packs": []
+	]
 }
