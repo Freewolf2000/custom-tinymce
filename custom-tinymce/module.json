@@ -11,7 +11,7 @@
 	"download": "https://github.com/Freewolf2000/custom-tinymce/raw/main/custom-tinymce.zip",
 	"scripts": [],
 	"styles": [
-		"styles/custom-tinymce.css",
+		"styles/custom-tinymce.css"
 	],
 	"esmodules": [
 		"scripts/custom-tinymce.js"
